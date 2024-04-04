@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner main = new Scanner(System.in);
+    float num = main.nextInt();
+    float factorial = factorial(num);
+    System.out.println(factorial);
+  }
+
+  public static float factorial(float num) {
+    if (num >= 1)
+      return num * factorial(num - 1);
+    else
+      return 1;
+  }
+
+}

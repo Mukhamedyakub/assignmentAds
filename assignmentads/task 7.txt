@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner main = new Scanner(System.in);
+    int size = main.nextInt();
+    int arr[] = new int[size];
+
+    for(int i = 0; i < size; i++){
+      arr[i] = main.nextInt();
+    }
+
+    System.out.println(reverse(arr, size));
+  }
+
+  public static String reverse(int arr[], int size){
+    if (size == 0){
+      return "";
+    }else{
+      return arr[size-1] + " " + reverse(arr, size-1);
+    }
+  }
+}

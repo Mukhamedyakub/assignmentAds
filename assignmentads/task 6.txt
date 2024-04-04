@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner main = new Scanner(System.in);
+    int a = main.nextInt();
+    int n = main.nextInt();
+    System.out.println(stepen(a, n));
+
+  }
+
+  public static int stepen(int a, int n) {
+    if (n == 0) {
+      return 1;
+    } else {
+      return a * stepen(a, n - 1);
+    }
+  }
+
+}

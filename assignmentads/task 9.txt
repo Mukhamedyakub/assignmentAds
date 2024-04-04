@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner main = new Scanner(System.in);
+    int n = main.nextInt();
+    int k = main.nextInt();
+    int a = binomCoefficient(n, k);
+    System.out.println(a);
+  }
+
+  public static int binomCoefficient(int n, int k){
+    if (k == 0 || k == n){
+      return 1;
+    }else{
+      return binomCoefficient(n-1, k-1) + binomCoefficient(n-1, k);
+    }
+  }
+}
