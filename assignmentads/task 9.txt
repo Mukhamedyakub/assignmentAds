@@ -1,20 +1,29 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
+        Scanner main = new Scanner(System.in);
+        int n = main.nextInt(); // Read values for 'n' and 'k' from the user
+        int k = main.nextInt();
+        int a = binomCoefficient(n, k); // Calculate the binomial coefficient using the recursive method
+        System.out.println(a);
 
-  public static void main(String[] args) {
-    Scanner main = new Scanner(System.in);
-    int n = main.nextInt();
-    int k = main.nextInt();
-    int a = binomCoefficient(n, k);
-    System.out.println(a);
-  }
-
-  public static int binomCoefficient(int n, int k){
-    if (k == 0 || k == n){
-      return 1;
-    }else{
-      return binomCoefficient(n-1, k-1) + binomCoefficient(n-1, k);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis)/1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-  }
-}
+
+        public static int binomCoefficient(int n, int k){ // Method to calculate the binomial coefficient recursively
+            if (k == 0 || k == n){
+                return 1; // Base case: binomial coefficient of n choose 0 or n choose n is 1
+            }else{
+                return binomCoefficient(n-1, k-1) + binomCoefficient(n-1, k); //calculate the binomial coefficient using the Pascal's triangle formula
+            }
+        }
+    }
+
