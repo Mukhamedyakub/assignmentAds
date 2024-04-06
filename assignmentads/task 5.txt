@@ -1,21 +1,29 @@
 import java.util.Scanner;
 
-public class Main{
-  public static void main(String[] args){
-    Scanner input = new Scanner(System.in);
-    int num = input.nextInt();
-    System.out.println(fibonacci(num));
-  }
+public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        System.out.println(fibonacci(num)); // Calculate and print the Fibonacci number for the given input
 
-  public static int fibonacci(int n){
-    if(n == 0){
-      return 0;
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis) / 1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-    else if(n == 1){
-      return 1;
+
+    public static int fibonacci(int n) { // Method to calculate Fibonacci number recursively
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
     }
-    else{
-      return fibonacci(n-1) + fibonacci(n-2);
-    }
-  }
 }
