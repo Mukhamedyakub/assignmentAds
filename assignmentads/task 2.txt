@@ -1,25 +1,31 @@
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter a size: ");
-    int size = input.nextInt();
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
 
-    float arr[] = new float[size];
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a size: ");  // Prompt the user to enter the size of the array
+        int size = input.nextInt();
+        float arr[] = new float[size]; // Create an array to store the input values
+        for (int i = 0; i < size; i++) { // Read the elements of the array from the input
+            arr[i] = input.nextInt();
+        }
 
-    for (int i = 0; i < size; i++) {
-      arr[i] = input.nextInt();
+        float sum = 0; // Calculate the sum of all elements in the array
+        for (int i = 0; i < size; i++) {
+            sum += arr[i];
+        }
+
+        float avg = sum / size; // Calculate the average of all elements in the array
+        System.out.println(avg);
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis)/1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-
-    float sum = 0;
-
-    for (int i = 0; i < size; i++) {
-      sum += arr[i];
-    }
-    
-    float avg = sum / size;
-    
-    System.out.println(avg);
-  }
 }
