@@ -1,18 +1,27 @@
 import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args){
-      Scanner main = new Scanner(System.in);
-      int a = main.nextInt();
-      int b = main.nextInt();
-      int c = euclid(a, b);
-      System.out.println(c);
+public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis(); // Record the current time
+        Scanner main = new Scanner(System.in);
+        int a = main.nextInt(); // Read two integer values 'a' and 'b' from the user
+        int b = main.nextInt();
+        int c = euclid(a, b); // Calculate the greatest common divisor (GCD) using the Euclidean algorithm
+        System.out.println(c); // Print the GCD
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis)/1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
 
-  public static int euclid(int a, int b){
-    if(a == 0){
-      return b;
+        public static int euclid(int a, int b){ // Method to calculate the greatest common divisor (GCD) using the Euclidean algorithm recursively
+            if(a == 0){
+                return b; // if 'a' is 0, the GCD is 'b'
+            }
+            return euclid(b % a, a); // Recursive case: continue with 'b % a' as the new 'a' and 'a' as the new 'b'
+        }
     }
-    return euclid(b % a, a);
-  }
-}
