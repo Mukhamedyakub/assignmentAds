@@ -1,19 +1,27 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
 
-  public static void main(String[] args) {
-    Scanner main = new Scanner(System.in);
-    float num = main.nextInt();
-    float factorial = factorial(num);
-    System.out.println(factorial);
-  }
+        Scanner main = new Scanner(System.in);
+        float num = main.nextInt();
+        float factorial = factorial(num); // Calculate the factorial of the entered number
+        System.out.println(factorial);
 
-  public static float factorial(float num) {
-    if (num >= 1)
-      return num * factorial(num - 1);
-    else
-      return 1;
-  }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis) / 1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
+    }
 
+    public static float factorial(float num) { // Method to calculate factorial recursively
+        if (num >= 1)
+            return num * factorial(num - 1);
+        else
+            return 1;
+    }
 }
