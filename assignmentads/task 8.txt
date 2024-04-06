@@ -1,28 +1,35 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
+        Scanner main = new Scanner(System.in);
+        String s = main.nextLine();
 
-  public static void main(String[] args) {
-    Scanner main = new Scanner(System.in);
-    String s = main.nextLine();
-    
-    if(digits(s, s.length())){
-      System.out.println("Yes");
-    }else{
-      System.out.println("No");
-    }
-    
-  }
+        if(digits(s, s.length())){ // Check if the input string contains only digits
+            System.out.println("Yes");
+        }else{
+            System.out.println("No");
+        }
 
-  public static boolean digits(String s, int length){
-    if(length == 0){
-      return true;
-    }else{
-      if(s.charAt(length-1) >= '0' && s.charAt(length-1) <= '9'){
-        return digits(s, length - 1);
-      }else{
-        return false;
-      }
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis)/1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-  }
-}
+
+        public static boolean digits(String s, int length){ // Method to check if a string contains only digits recursively
+            if(length == 0){
+                return true; // Base case: if the length is 0, the string contains only digits
+            }else{
+            if(s.charAt(length-1) >= '0' && s.charAt(length-1) <= '9'){ // Check if the last character is a digit and continue checking the rest of the string
+                return digits(s, length - 1);
+            }else{
+                return false; // If the last character is not a digit, the string doesn't contain only digits
+            }
+        }
+    }
