@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         long currentTimeMillis = System.currentTimeMillis();
         Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
+        int a = input.nextInt(); // Prompt the user to enter two numbers
         int n = input.nextInt();
         System.out.println(stepen(a, n));
 
@@ -17,11 +17,11 @@ public class Main {
         Long duration = (System.currentTimeMillis() - currentTimeMillis) / 1000; // Calculate the duration of the code execution in milliseconds
         System.out.println(duration + "ms");
     }
-        public static int stepen ( int a, int n){
+        public static int stepen ( int a, int n){ // Method to calculate power recursively
             if (n == 0) {
                 return 1;
             } else {
-                return a * stepen(a, n - 1);
+                return a * stepen(a, n - 1); // Recursive case: multiply 'a' by itself (n-1) times
             }
         }
     }
