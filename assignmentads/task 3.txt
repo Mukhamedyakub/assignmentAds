@@ -1,36 +1,45 @@
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
-    
-    Scanner input = new Scanner(System.in);
-    
-    System.out.print("Enter a number: ");
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
 
-    int number = input.nextInt();
-    
-    if (number == 1) {
-      System.out.println("Composite");
-    } else if (number > 1) {
-      System.out.println("Incorrect type of data");
-    } else {
-      
-      boolean isPrime = true;
+        Scanner input = new Scanner(System.in);
 
-      for (int i = 2; i < number / 2; i++) {
+        System.out.print("Enter a number: ");
 
-        if (number % i == 0) {
-          System.out.println("Composite");
-          isPrime = false;
-          break;
+        int number = input.nextInt();
+
+        if (number == 1) {
+            System.out.println("Composite");
+        } else if (number < 1) {
+            System.out.println("Incorrect type of data");
+        } else {
+
+            boolean isPrime = true;
+
+            for (int i = 2; i < number / 2; i++) {
+
+                if (number % i == 0) {
+                    System.out.println("Composite");
+                    isPrime = false;
+                    break;
+                }
+
+            }
+
+            if (isPrime == true) {
+                System.out.println("Prime");
+            }
         }
+        input.close();
 
-      }
-
-      if (isPrime == true) {
-        System.out.println("Prime");
-      }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis)/1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-    input.close();
-  }
 }
