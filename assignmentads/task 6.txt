@@ -1,21 +1,27 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void main(String[] args) {
+        long currentTimeMillis = System.currentTimeMillis();
+        Scanner input = new Scanner(System.in);
+        int a = input.nextInt();
+        int n = input.nextInt();
+        System.out.println(stepen(a, n));
 
-  public static void main(String[] args) {
-    Scanner main = new Scanner(System.in);
-    int a = main.nextInt();
-    int n = main.nextInt();
-    System.out.println(stepen(a, n));
 
-  }
-
-  public static int stepen(int a, int n) {
-    if (n == 0) {
-      return 1;
-    } else {
-      return a * stepen(a, n - 1);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) { // Add a delay of 3000 milliseconds (3 seconds)
+            e.printStackTrace();
+        }
+        Long duration = (System.currentTimeMillis() - currentTimeMillis) / 1000; // Calculate the duration of the code execution in milliseconds
+        System.out.println(duration + "ms");
     }
-  }
-
-}
+        public static int stepen ( int a, int n){
+            if (n == 0) {
+                return 1;
+            } else {
+                return a * stepen(a, n - 1);
+            }
+        }
+    }
